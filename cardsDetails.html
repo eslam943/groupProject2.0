@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Destination Details | Travel Planner</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f7fa;
+      color: #333;
+      text-transform: capitalize;
+    }
+    .navbar {
+      background-color: #6a1b9a !important;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-brand {
+      font-weight: 700;
+      color: white !important;
+      display: flex;
+      align-items: center;
+    }
+    .nav-link {
+      color: #e0e0e0 !important;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+    .nav-link:hover {
+      color: white !important;
+      transform: translateY(-2px);
+    }
+    .login-btn {
+      background: linear-gradient(45deg, #8e24aa, #4a148c);
+      color: white !important;
+      border-radius: 25px;
+      padding: 8px 18px;
+      font-weight: 600;
+    }
+    .header-section {
+      background: linear-gradient(45deg, #8e24aa, #6a1b9a);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+    .breadcrumb {
+      margin: 20px;
+      color: #6a1b9a;
+    }
+    .details-container {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      margin: 30px auto;
+      max-width: 1000px;
+    }
+    .detail-img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 4px solid white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .detail-meta {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin: 15px 0;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      color: #6a1b9a;
+    }
+    .action-btn {
+      background: linear-gradient(45deg, #8e24aa, #6a1b9a);
+      border: none;
+      color: white;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-weight: 600;
+      margin-right: 10px;
+    }
+    .section-title {
+      color: #6a1b9a;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #e1bee7;
+      padding-bottom: 5px;
+    }
+    .highlight {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .highlight i {
+      color: #6a1b9a;
+      background: #f3e5f5;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .fact {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+    .fact i {
+      color: #6a1b9a;
+      margin-right: 8px;
+    }
+    .gallery img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 6px;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    @media (max-width: 768px) {
+      .detail-img {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <i class="bi bi-geo-alt-fill me-2"></i> Travel Planner
+      </a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house-door-fill"></i> Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="destinations.html"><i class="bi bi-map"></i> Destinations</a></li>
+          <li class="nav-item"><a class="nav-link" href="my-trips.html"><i class="bi bi-calendar-check-fill"></i> My Trips</a></li>
+          <li class="nav-item"><a class="nav-link" href="favourites.html"><i class="bi bi-heart-fill"></i> Favorites</a></li>
+        </ul>
+        <a class="btn login-btn" href="login.html">
+          <i class="bi bi-person-circle"></i> Login/Register
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="header-section">
+    <h1><i class="fa-solid fa-map-location-dot me-2"></i>Destination Details</h1>
+    <p>Explore everything you need to know about this amazing destination</p>
+  </div>
+
+  <!-- Breadcrumb -->
+  <div class="breadcrumb"><i class="fa-solid fa-house"></i> Home / Destination</div>
+
+  <!-- Details Content -->
+  <div class="details-container">
+    <img id="detailMainImg" class="detail-img" src="" alt="Destination Image">
+    <h2 id="detailTitle" class="mt-4"></h2>
+    <div class="detail-meta">
+      <div class="meta-item"><i class="fas fa-map-marker-alt"></i><span id="detailRegion"></span></div>
+      <div class="meta-item"><i class="fas fa-users"></i><span id="detailPopulation"></span></div>
+    </div>
+    <p id="detailDescription"></p>
+    <button class="action-btn"><i class="fa-solid fa-heart"></i> Add to Favorites</button>
+    <button class="action-btn"><i class="fa-solid fa-calendar-plus"></i> Plan Trip</button>
+
+    <h4 class="section-title mt-5"><i class="fa-solid fa-star"></i> Highlights</h4>
+    <div id="detailHighlights"></div>
+
+    <h4 class="section-title"><i class="fa-solid fa-circle-info"></i> Quick Facts</h4>
+    <div id="detailFacts"></div>
+
+    <h4 class="section-title"><i class="fa-solid fa-image"></i> Photo Gallery</h4>
+    <div class="row g-3 gallery" id="detailGallery"></div>
+  </div>
+
+  <!-- Bootstrap Bundle (JS) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Page Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1) Ensure we have an ID (fallback to "1" for dev/testing)
+      let id = localStorage.getItem('selectedDestinationId');
+      if (!id) {
+        id = '1';
+        localStorage.setItem('selectedDestinationId', id);
+      }
+
+      try {
+        // 2) Fetch and render
+        const res = await fetch('https://edu-me01.github.io/Traval-task/api/data.json');
+        const data = await res.json();
+        const item = data.destinations.find(d => d.id == id);
+        if (!item) throw new Error('Destination not found');
+
+        document.getElementById('detailTitle').textContent = item.country;
+        document.getElementById('detailRegion').textContent = item.region;
+        document.getElementById('detailPopulation').textContent = item.population;
+        document.getElementById('detailDescription').textContent = item.description;
+        document.getElementById('detailMainImg').src = item.image;
+
+        // 3) Highlights
+        const highlights = [
+          "Beautiful landscapes and scenic views",
+          "Rich cultural heritage and history",
+          "Delicious local cuisine",
+          "Friendly locals and vibrant atmosphere"
+        ];
+        highlights.forEach(h => {
+          const el = document.createElement('div');
+          el.className = 'highlight';
+          el.innerHTML = `<i class="fas fa-check"></i><span>${h}</span>`;
+          document.getElementById('detailHighlights').appendChild(el);
+        });
+
+        // 4) Quick Facts
+        const facts = [
+          { icon: 'language', text: `Language: ${item.language || 'Various'}` },
+          { icon: 'money-bill-wave', text: `Currency: ${item.currency || 'Local currency'}` },
+          { icon: 'clock', text: 'Time Zone: GMT+0' },
+          { icon: 'plug', text: 'Voltage: 220V' }
+        ];
+        facts.forEach(f => {
+          const el = document.createElement('div');
+          el.className = 'fact';
+          el.innerHTML = `<i class="fas fa-${f.icon}"></i>${f.text}`;
+          document.getElementById('detailFacts').appendChild(el);
+        });
+
+        // 5) Gallery
+        item.gallery.forEach(img => {
+          const col = document.createElement('div');
+          col.className = 'col-6 col-md-3';
+          col.innerHTML = `<img src="${img}" alt="Gallery Image">`;
+          document.getElementById('detailGallery').appendChild(col);
+        });
+
+      } catch (err) {
+        console.error(err);
+        // Optional: show an on-page error message instead of redirect
+        // location.href = 'destinations.html';
+      }
+    });
+  </script>
+</body>
+</html>
